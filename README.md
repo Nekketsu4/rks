@@ -23,45 +23,46 @@
 
 ## Установка
 
-Выполните гит клон на свою локальную/виртуальную машину https://github.com/Nekketsu4/game_store.git
+Выполните гит клон на свою локальную/виртуальную машину - git clone https://github.com/Nekketsu4/rks.git
 
 
 ### Инструкция
 ```bash
-#Перейдите в директорию проекта
-cd game_store
-
 #создайте виртуальное окружение
-virtualvenv venv
+#Linux:
+python3 -m venv env
 
-#сделайте вирт. окружение активным
+#Windows:
+python -m venv env
+
+
+#активируйте виртуальное окружение
+#Linux:
 source venv/bin/activate
 
-#установите зависимости 
+#Windows:
+venv\Scripts\activat
+
+#установите пакет с зависимостями 
 pip install -r req.txt
 
-```
-Подключите свою БД к проекту (вот тут выполнить подключение вашей БД ==> https://github.com/Nekketsu4/game_store/blob/main/store_project/loc_settings.py#L22)
+#Сформируйте базу данных
+python3 manage.py makemigrations
 
-```bash
 #Выполните миграцию
 python3 manage.py migrate
 
 #Запустите сервер
 python3 manage.py runserver
+
+#Перейдите по ссылке, чтобы протестировать API
+http://127.0.0.1:8000/list/
+
+#Вы можете так же выполнить соритровку списка,
+# используя в качестве параметра поле sorting
+http://127.0.0.1:8000/list/?sorting=name
+
+#Так же можете перейти на страницу с автодокументируемым инструментом Swagger либо же Redoc
+http://127.0.0.1:8000/swagger/
+http://127.0.0.1:8000/redoc/
 ```
-
-#### *Клиентская часть*
-
-```bash
-#Перейдите в директорию фронтенда
-cd game_store/games_store
-
-#Установите менеджер пакетов npm
-install npm
-
-#Запустите сервер клиентской части(порт `http://localhost:8081`)
-npm run serve
-
-#Убедитесь в том что порт  Бэкенда запущен (порт `http://localhost:8000`)
-
