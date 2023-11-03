@@ -41,7 +41,7 @@ python -m venv env
 source venv/bin/activate
 
 #Windows:
-venv\Scripts\activat
+venv\Scripts\activate
 
 #установите пакет с зависимостями 
 pip install -r req.txt
