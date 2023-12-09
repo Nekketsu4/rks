@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api_multimedia.models import Track, Album
+from api_multimedia.models import Track
 
 
 class MultimediaSerializer(serializers.Serializer):
